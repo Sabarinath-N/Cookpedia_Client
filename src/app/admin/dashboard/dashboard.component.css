@@ -1,0 +1,10 @@
+a:hover{
+    background-color: rgba(246, 255, 0, 0.5);
+}
+button:hover{
+    background-color: rgba(240, 8, 8, 0.2);   
+}
+
+.demo-inline-calendar-card {
+  width: 100%;
+}

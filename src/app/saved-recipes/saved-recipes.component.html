@@ -1,0 +1,28 @@
+<div class="container-fluid" style="min-height: 70vh">
+    <h1 class="my-5">Saved Recipes</h1>
+    <div class="d-flex flex-wrap justify-content-around mb-5">
+
+        @if(savedList.length>0){
+        @for(i of savedList; track $index){
+        <div class="card mb-5 " style="width: 18rem;">
+            <img src="{{i.image}}" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title text-center">{{i.name}}</h5>
+                <p class="text-center fw-bolder">Cuisine : {{i.cuisine}}</p>
+            </div>
+            <div class="card-footer d-flex justify-content-between">
+                <a routerLink="/details/{{i.recipeId}}" class="btn btn-info text-light">
+                    <i class="fa-solid fa-circle-info"></i>
+                </a>
+                <button class="btn btn-danger" (click)="handleDelete(i._id)">
+                    <i class="fa-solid fa-trash fa-lg text-light"></i>
+                </button>
+            </div>
+        </div>
+        }
+        }
+        @else {
+            <h4 class="text-center text-danger ">No Saved Recipes Available</h4>
+        }
+    </div>
+</div>

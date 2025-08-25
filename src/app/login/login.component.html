@@ -1,0 +1,30 @@
+<div class="container-fluid d-flex flex-column justify-content-center align-items-center" style="height: 100vh;">
+
+    <h1 class="display-4 text-center">CooksPedia <i class="fa-solid fa-fire-flame-curved text-warning"></i></h1>
+    <h6 class="text-center mb-3">Get more than 100+ recipes on your fingertips!!</h6>
+    <div class="w-50 border border-3 shadow p-4 bg-light">
+        <h4 class="text-center mb-4">User SignIn</h4>
+        <form action="" [formGroup]="logForm" (ngSubmit)="handleSubmit()">
+            <input type="email" formControlName="email" placeholder="Enter ID" class="form-control mb-4">
+            @if(logForm.controls.email.invalid && logForm.controls.email.touched){
+            <div class="text-danger">
+                * Invalid Email ID
+            </div>
+            }
+
+            <input type="password" formControlName="password" placeholder="Enter Password" class="form-control mb-4">
+            @if(logForm.controls.password.invalid && logForm.controls.password.touched){
+            <div class="text-danger">
+                * Invalid Password
+            </div>
+            }
+
+            <div class="d-flex justify-content-between">
+                <button class="btn btn-success me-4" [disabled]="logForm.invalid">Submit</button>
+                <a routerLink="/" class="btn btn-danger">Cancel</a>
+            </div>
+        </form>
+
+    </div>
+
+</div>

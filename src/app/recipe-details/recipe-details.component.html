@@ -1,0 +1,68 @@
+<div class="container-fluid" style="min-height: 80vh">
+    <div class="row">
+        <div class="col-sm-12 col-md-6">
+            <img src="{{ recipe?.image }}" alt="recipeimage" class="img-fluid pt-5 px-5 pb-2" />
+            <div class="w-100 my-4 px-5 ">
+                <button class="btn btn-success w-50 " (click)="handleDownload()">
+                    Download Recipe <i class="fa-solid fa-download text-light fa-lg"></i> ({{downloadCount}})
+                </button>
+                <button class="btn btn-info w-50" (click)="saveRecipe()">
+                    Save Recipe <i class="fa-solid fa-floppy-disk text-light fa-lg"></i>
+                </button>
+
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-6">
+            <h1 class="text-center my-4">{{ recipe.name }}</h1>
+            <div class="row">
+                <div class="col border border-3 border-dark p-4 m-1">
+                    <h6 class="">
+                        <i class="fa-solid fa-utensils fa-lg"></i>Cuisine:{{recipe.cuisine}}
+                    </h6>
+                </div>
+                <div class="col border border-3 border-dark p-4 m-1">
+                    <h6 class="">
+                        <i class="fa-solid fa-bars-staggered fa-lg"></i>Difficulty :{{ recipe.difficulty }}
+                    </h6>
+                </div>
+                <div class="col border border-3 border-dark p-4 m-1">
+                    <h6 class="">
+                        <i class="fa-solid fa-bowl-rice fa-lg"></i>Serving :{{recipe.servings }}
+                    </h6>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col border border-3 border-dark p-4 m-1">
+                    <h6>
+                        <i class="fa-solid fa-clock fa-lg"></i> Cooking Time <br> [Minutes] :
+                        {{ recipe.cookTimeMinutes }}
+                    </h6>
+                </div>
+                <div class="col border border-3 border-dark pt-4 m-1">
+                    <h6>
+                        <i class="fa-solid fa-clock fa-lg"></i> Preperation Time [Minutes] :
+                        {{ recipe.prepTimeMinutes }}
+                    </h6>
+                </div>
+                <div class="col border border-3 border-dark pt-4 m-1">
+                    <h6>
+                        <i class="fa-solid fa-heart-pulse fa-lg"></i> caloriesPerServing :  {{ recipe.caloriesPerServing }}
+                    </h6>
+                </div>
+            </div>
+            <h4>MealType: {{recipe?.mealType}}</h4>
+            <h4>ingredients</h4>
+            <ul>
+                @for(i of recipe.ingredients;track $index){
+                <li>{{i}}</li>
+                }
+            </ul>
+            <h4>instructions</h4>
+            <ol>
+                @for(i of recipe.instructions;track $index){
+                <li>{{i}}</li>
+                }
+            </ol>
+        </div>
+    </div>
+</div>

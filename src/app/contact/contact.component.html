@@ -1,0 +1,61 @@
+<div class="container-fluid p-0">
+
+    <div class="bg-success px-5 py-3 text-light">
+        <h1 class="text-center mb-3">Contact Us</h1>
+        <p style="text-align: justify;" class="mx-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem
+            vitae nulla
+            nihil magni fugit libero, perferendis minima obcaecati provident. Enim expedita excepturi ex voluptas totam
+            soluta accusantium id perspiciatis praesentium. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ut
+            commodi aut velit tempore alias, impedit minus. Perferendis tenetur qui fugiat! Optio, doloremque quae
+            voluptates inventore neque ipsam placeat alias repellat. Lorem ipsum dolor sit amet consectetur adipisicing
+            elit. Quasi quas perspiciatis culpa error. Omnis alias repellendus rerum et dignissimos ab vel molestiae?
+            Fugit quasi nisi quis, labore maxime dignissimos aliquam.
+        </p>
+    </div>
+
+    <div class="row p-4  m-0">
+        <div class="col d-flex flex-column justify-content-center ">
+            <h2>Get In Touch</h2>
+            <p style="text-align: justify;">
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nisi enim eligendi iusto distinctio sint autem
+                dolorem optio impedit debitis deleniti accusantium sequi eveniet a, hic ut, quia non aliquid voluptate.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos officia tempora perspiciatis esse
+                dolorem, corrupti magnam quis dolore ipsum fugiat aut nemo rerum quaerat explicabo, unde nulla
+                perferendis ad. Quaerat. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Maxime sed saepe
+                obcaecati perspiciatis id. Eos ab reprehenderit quibusdam tenetur tempora maiores laborum ratione quas,
+                optio animi debitis molestiae quis corporis.
+            </p>
+            <p class="my-4">
+                <span class="bg-success p-3 rounded-circle"> <i class="fa-solid fa-location-dot fa-lg"></i> </span>
+                Address : ABC Tower, Calicut, 65
+            </p>
+            <p class="my-4">
+                <span class="bg-success p-3 rounded-circle"> <i class="fa-solid fa-phone fa-lg"></i> </span> Phone :
+                9874XXXXXX
+            </p>
+            <p class="my-4">
+                <span class="bg-success p-3 rounded-circle"> <i class="fa-solid fa-envelope fa-lg"></i> </span> Email :
+                cookspedia&#64;gmail.com
+            </p>
+        </div>
+        <div class="col   ">
+            <div class="border border-3 border-dark shadow w-75 mx-auto p-3 my-5">
+                <h4 class="mb-3">Add Testimony</h4>
+                <form action="" (ngSubmit)="handleSubmit(testForm.value)" #testForm="ngForm" >
+                    <input type="text" ngModel name="name" required minlength="3" placeholder="Name" class="form-control mb-3" id="">
+                    <input type="email" ngModel name="email" required pattern="^\w+@\w+\.\w{2,3}$" placeholder="Email" class="form-control mb-3" id="">
+                    <textarea ngModel name="testimony" required minlength="3" placeholder="Testimony" class="form-control mb-3" id=""></textarea>
+                    @if(testForm.invalid){
+                        <span class="text-danger">*Invalid Input Values</span><br>
+                    }
+                    <p class="my-4 px-3" style="text-align: justify;"> By submitting , You are agreeing with the terms &
+                        conditions of the website details in our website
+                    </p>
+                    <button class="btn btn-success" [disabled]="testForm.invalid">Submit</button>
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+</div>

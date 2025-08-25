@@ -1,0 +1,74 @@
+<div class="container-fluid p-0" style="min-height: 100vh;min-width: 100vw;">
+    <div class="row w-100">
+        <div class="col-sm-6 col-md-3">
+            <div class="bg-dark text-light w-100 p-4 sticky-top" style="height: 100vh;">
+                <h2 class="my-3">
+                    <i class="fa-solid fa-user-tie " style="color: #74C0FC;"></i>
+                    Admin Dashboard
+                </h2>
+                <div class="d-flex flex-column justify-content-around align-items-center " style="height: 70vh;">
+                    <a routerLink="/admin" class="text-light w-75 p-3 border boerder-light fw-bolder"
+                        style="text-decoration: none;">
+                        <i class="fa-solid fa-chart-line fa-lg me-2" style="color: #3378f0;"></i>
+                        Dashboard
+                    </a>
+                    <a routerLink="/admin/recipelist" class="text-light w-75 p-3 border boerder-light fw-bolder"
+                        style="text-decoration: none;">
+                        <i class="fa-solid fa-bowl-food fa-lg me-2" style="color: #ff6600;"></i>
+                        Recipes
+                    </a>
+                    <a routerLink="/admin/userlist" class="text-light w-75 p-3 border boerder-light fw-bolder"
+                        style="text-decoration: none;">
+                        <i class="fa-solid fa-users fa-lg me-2" style="color: #4b8b87;"></i>
+                        Users
+                    </a>
+                    <a routerLink="/admin/downloads" class="text-light w-75 p-3 border boerder-light fw-bolder"
+                        style="text-decoration: none;">
+                        <i class="fa-solid fa-download fa-lg me-2" style="color: #1ef202;"></i>
+                        Downloads
+                    </a>
+                    <a routerLink="/admin/requests" class="text-light w-75 p-3 border boerder-light fw-bolder"
+                        style="text-decoration: none;">
+                        <i class="fa-solid fa-bell fa-lg me-2" style="color: #ea2e38;"></i>
+                        Requests
+                    </a>
+                    <button (click)="logout()" class="btn text-danger w-75 p-3 border border-light fw-bolder">
+                        <i class="fa-solid fa-right-from-bracket fa-lg "></i>
+                        LogOut
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6 col-md-9">
+            <h2> UserList</h2>
+            @if(userList.length>0){
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Username</th>
+                        <th>Email</th>
+                        <th>Profile Picture</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for(i of userList;track $index){
+                        <tr>
+                            <td> {{i._id}} </td>
+                            <td> {{i.username}} </td>
+                            <td> {{i.email}} </td>
+                            <td>
+                            <img src="{{i.profile}}" alt="Not Available">    
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            }
+            @else{
+                <h2 class="text-center text-danger">No Users Found!!</h2>
+            }
+        </div>
+    </div>
+</div>

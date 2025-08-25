@@ -1,0 +1,48 @@
+Cookspedia
+--------------------
+
+1. Admin
+ - view users
+ - add recipe
+ - list recipe
+ - edit recipe
+ - delete recipe
+ - testimonial approval
+ - download listing
+ - dashboard
+
+2. User
+ - sign in
+ - sign up
+ - recipe list
+ - recipe filtering
+ - recipe search
+ - recipe details
+ - recipe download
+ - save recipe
+ - profile picture updation
+ - list saved recipes
+
+3. Guest
+ - add testimonials
+ - sample recipes
+ - testimonial views
+
+
+
+Pages
+ - Home
+ - Recipes
+ - about
+ - contact
+ - sign in
+ - sign up
+ - recipe details
+ - saved recipes
+ - profile
+
+
+
+
+
+ backend from=ntend-7-8-25

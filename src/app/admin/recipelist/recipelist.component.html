@@ -1,0 +1,84 @@
+<div class="container-fluid p-0" style="min-height: 100vh;min-width: 100vw;">
+    <div class="row w-100">
+        <div class="col-sm-6 col-md-3">
+            <div class="bg-dark text-light w-100 p-4 sticky-top" style="height: 100vh;">
+                <h2 class="my-3">
+                    <i class="fa-solid fa-user-tie " style="color: #74C0FC;"></i>
+                    Admin Dashboard
+                </h2>
+                <div class="d-flex flex-column justify-content-around align-items-center " style="height: 70vh;">
+                    <a routerLink="/admin" class="text-light w-75 p-3 border boerder-light fw-bolder"
+                        style="text-decoration: none;">
+                        <i class="fa-solid fa-chart-line fa-lg me-2" style="color: #3378f0;"></i>
+                        Dashboard
+                    </a>
+                    <a routerLink="/admin/recipelist" class="text-light w-75 p-3 border boerder-light fw-bolder"
+                        style="text-decoration: none;">
+                        <i class="fa-solid fa-bowl-food fa-lg me-2" style="color: #ff6600;"></i>
+                        Recipes
+                    </a>
+                    <a routerLink="/admin/userlist" class="text-light w-75 p-3 border boerder-light fw-bolder"
+                        style="text-decoration: none;">
+                        <i class="fa-solid fa-users fa-lg me-2" style="color: #4b8b87;"></i>
+                        Users
+                    </a>
+                    <a routerLink="/admin/downloads" class="text-light w-75 p-3 border boerder-light fw-bolder"
+                        style="text-decoration: none;">
+                        <i class="fa-solid fa-download fa-lg me-2" style="color: #1ef202;"></i>
+                        Downloads
+                    </a>
+                    <a routerLink="/admin/requests" class="text-light w-75 p-3 border boerder-light fw-bolder"
+                        style="text-decoration: none;">
+                        <i class="fa-solid fa-bell fa-lg me-2" style="color: #ea2e38;"></i>
+                        Requests
+                    </a>
+                    <button (click)="logout()" class="btn text-danger w-75 p-3 border border-light fw-bolder">
+                        <i class="fa-solid fa-right-from-bracket fa-lg "></i>
+                        LogOut
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6 col-md-9">
+            <h2>Recipe List</h2>
+            <div class="mb-3 d-flex justify-content-between ">
+                <input type="search" [(ngModel)]="keyword" name="search" placeholder="Enter Keyword" class="form-control w-50">
+                <a routerLink="/admin/addrecipe" id="add" class="btn btn-outline-success">Add New Recipe</a>
+            </div>
+            @if(recipelist.length>0){
+            <table class="table table-dark table-bordered">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Cuisine</th>
+                        <th>Image</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for(i of recipelist| search:keyword;track $index){
+                    <tr>
+                        <td> {{i.id}} </td>
+                        <td> {{i.name}} </td>
+                        <td> {{i.cuisine}} </td>
+                        <td>
+                            <img src="{{i.image}}" width="250px" height="250px" alt="">
+                            
+                        </td>
+                        <td>
+                            <a class="btn btn-warning" routerLink="/admin/editrecipe/{{i._id}}">Edit</a>
+                            <button class="btn btn-danger" (click)="handleDelete(i._id)">Delete</button>
+                        </td>
+                    </tr>
+                    }
+                </tbody>
+            </table>
+            }
+            @else{
+            <h2 class="text-center text-danger">No Recipes</h2>
+            }
+        </div>
+    </div>
+</div>

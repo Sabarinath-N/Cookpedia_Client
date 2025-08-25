@@ -1,0 +1,75 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-3 col-sm-6 p-3 border-end border-3 border-dark">
+            <h4>Filters</h4>
+            <button class="btn border" (click)="filterHandler('','')">All</button> <br>
+            <button class="btn btn-secondary mt-2" type="button" data-bs-toggle="collapse" data-bs-target="#cuisine"
+                aria-expanded="false" aria-controls="collapseExample">
+                Cuisine
+                <i class="fa-solid fa-angles-down"></i>
+            </button>
+            <div class="collapse " id="cuisine">
+                <div class="d-flex flex-wrap justify-content-around">
+                    @if(cuisinelist.length>0){
+                    @for(i of cuisinelist; track $index){
+                    <button class="btn border m-1" (click)="filterHandler(i,'cuisine')" > {{i}} </button>
+                    }
+                    }
+
+                </div>
+            </div>
+
+            <br>
+
+            <button class="btn btn-secondary mt-3" type="button" data-bs-toggle="collapse" data-bs-target="#meal"
+                aria-expanded="false" aria-controls="collapseExample">
+                Meal Type
+                <i class="fa-solid fa-angles-down"></i>
+            </button>
+
+            <div class="collapse" id="meal">
+                <div class="d-flex flex-wrap justify-content-around my-2">
+                    @if(mealTypeList.length>0){
+                    @for(i of mealTypeList; track $index)
+                    {
+                    <button class="btn border m-1 " (click)="filterHandler(i,'mealType')"> {{i}} </button>
+                    }
+                    }
+
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="col-md-9 col-sm-6">
+            <div class="my-5">
+                <h2 class="float-start">Recipe List</h2>
+                <input type="search" [(ngModel)]="keyword" name="" placeholder="Enter Keyword to Search"
+                    class="form-control w-50 ms-auto border border-2" id="">
+            </div>
+            <div class="d-flex flex-wrap justify-content-around mb-5">
+                @if(allRecipes.length>0){
+
+                @for(i of allRecipes| search:keyword |filter:filterKey:filterType ;track $index){
+                <div class="card mb-3 bg-light shadow " style="width: 18rem;">
+                    <img src="{{i.image}}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title text-center">{{i.name}}</h5>
+                        <p class="text-center fw-bolder">Cuisine : {{i.cuisine}}</p>
+                        <a routerLink="/details/{{i._id}}" class="stretched-link"></a>
+                    </div>
+                </div>
+                }
+
+                }
+                @else {
+                <h3 class="text-center text-danger">No recipes available</h3>
+                }
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

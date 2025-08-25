@@ -1,0 +1,59 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-success">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/">
+            <i class="fa-solid fa-xl fa-fire"></i>
+            <span class="fw-bold fs-2 ">CooksPedia</span>
+
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
+                <li class="nav-item ">
+                    <a class="nav-link" routerLink="/">Home </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/recipes">Recipes</a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link" routerLink="/about">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="/contact">Contact</a>
+                </li>
+            </ul>
+        </div>
+
+
+        <div class="dropstart me-3">
+            <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton1"
+                data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="fa-solid fa-user-secret fa-lg"></i>
+                {{username}}
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                @if(!username){
+                <li><a class="dropdown-item" routerLink="/log">Sign In</a></li>
+                <li><a class="dropdown-item" routerLink="/reg">Sign Up</a></li>
+                }
+                @else{
+                    <li><a class="dropdown-item" routerLink="/savedlist">Saved Reciped</a></li>
+                <li><a class="dropdown-item" routerLink="/profile">Profile</a></li>
+                <li><button class="dropdown-item text-danger" (click)="logOut()">LogOut</button></li>
+                }
+            </ul>
+        </div>
+
+
+    </div>
+
+
+
+
+
+
+
+</nav>

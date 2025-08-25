@@ -1,0 +1,17 @@
+<div class="container-fluid d-flex justify-content-center align-items-center" style="min-height: 70vh;">
+
+    <div class="w-50 border shadow p-5 d-flex flex-column align-items-center">
+        <h1 class="text-center mb-1">
+            Profile Picture
+        </h1>
+        <!-- <form action=""> -->
+            <label for="inp">
+                <input type="file" (change)="getFile($event)" style="display: none;" name="" id="inp">
+                <img [src]="profilePicture" width="100%"
+                 style="cursor: pointer;" class="img-fluid mb-3"  alt="">
+            </label>
+            <br>
+            <button class="btn btn-success" (click)="handleSubmit()">Update</button>
+        <!-- </form> -->
+    </div>
+</div> 

@@ -1,0 +1,110 @@
+<div class="container-fluid p-0">
+
+    <!-- Introduction -->
+
+    <div class="bg-success text-light">
+        <div class="row" style="max-width: 100%;">
+            <div class="col d-flex flex-column justify-content-center align-items-center">
+                <h1>CooksPedia</h1>
+                <p style="text-align: justify;" class="p-3">
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione magnam sapiente autem nihil quam
+                    animi, dolorem optio ipsam modi asperiores soluta veritatis aperiam quidem quod nulla totam
+                    voluptates voluptatem laudantium?Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum
+                    quisquam numquam facilis dolore iusto veritatis, nisi consectetur quos sequi obcaecati culpa.
+                    Mollitia dolore maiores totam alias similique fugiat cumque ipsum!
+                </p>
+            </div>
+            <div class="col d-flex justify-content-center">
+                <img src="https://pngmax.com/_next/image?url=https%3A%2F%2Fpng-max.s3.ap-south-1.amazonaws.com%2Flow%2F69d9ee62-646b-429b-bde3-80e25bb96ce5.png&w=1200&q=75"
+                    class="w-50" alt="introimg" id="intro">
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Sample Recipes -->
+
+    <div class="p-3 w-100">
+        <h2 class="my-5 text-center">Popular Recipes Of This Week</h2>
+
+        <div class="d-flex flex-wrap justify-content-around">
+
+
+            @if(sampleRecipes.length>0){
+
+            @for(i of sampleRecipes;track $index){
+            <div class="card" style="width: 18rem;">
+                <img src="{{i.image}}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title text-center">{{i.name}}</h5>
+                    <p class="text-center fw-bolder">Cuisine : {{i.cuisine}}</p>
+                </div>
+            </div>
+            }
+
+            }
+            @else{
+            <h3 class="text-center text-danger">No Recipes Available</h3>
+            }
+
+
+
+
+        </div>
+    </div>
+
+    <!-- Banner  -->
+
+    <div class="container-fluid d-flex justify-content-center align-items-center" id="banner">
+        <div id="banner-in">
+            <h1 class="text-center ">50+ Recipes That Very Quick And Fast</h1>
+            <h4 class="text-center">Find the perfect food ideas to start your day with the quick and easier way</h4>
+        </div>
+
+    </div>
+
+
+    <!-- Download App  -->
+
+    <div class="bg-success text-light my-5">
+        <div class="row" style="max-width: 100%;">
+            <div class="col d-flex flex-column justify-content-center align-items-center">
+                <img src="https://cdni.iconscout.com/illustration/premium/thumb/mobile-app-6279833-5189736.png"
+                    class="img-fluid" alt="">
+            </div>
+            <div class="col d-flex flex-column justify-content-center">
+                <h1 class="mb-3">Download the App </h1>
+                <h6 class="mb-2">Click on the link below to download apk file for CooksPedia Android App</h6>
+                <a href="" style="box-shadow: 10px 10px;" class="btn btn-light w-25 mt-3">
+                    <i class="fa-solid fa-download fa-xl"></i>
+                </a>
+
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Testimonials -->
+
+    <div class="container-fluid mb-5">
+        <h2 class="text-center my-3">User Testimonial</h2>
+        <div class="d-flex flex-wrap justify-content-around">
+
+            @if(testimonyList.length>0){
+            @for(i of testimonyList;track $index){
+            <div class="p-5 border shadow border-2 w-25" style="box-shadow: 4px 4px;">
+                <p style="text-align: justify;">
+                    {{i.testimony}}
+                </p>
+                <h6 class="float-end"> -{{i.name}} </h6>
+            </div>
+            }
+            }
+            @else{
+                <h3 class="text-center text-danger">No Testimonies !!</h3>
+            }
+        </div>
+    </div>
+
+</div>
